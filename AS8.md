@@ -1,5 +1,3 @@
-Using 685 out of 57336 bytes
-!
 version 12.4
 service timestamps debug datetime msec
 service timestamps log datetime msec
@@ -63,6 +61,10 @@ interface FastEthernet0/1
  duplex auto
  speed auto
 !
+router ospf 1
+ log-adjacency-changes
+ network 192.168.4.1 0.0.0.0 area 0
+!
 ip forward-protocol nd
 !
 !
@@ -89,6 +91,7 @@ control-plane
 line con 0
 line aux 0
 line vty 0 4
+ login
 !
-!         
+!
 end
